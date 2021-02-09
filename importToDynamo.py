@@ -13,12 +13,12 @@ parser.add_argument('table', help='Dynamo db table name')
 parser.add_argument('writeRate', default=5, type=int, nargs='?',
                     help='Number of records to write in table per second (default:5)')
 parser.add_argument('delimiter', default=',', nargs='?', help='Delimiter for csv records (default=,)')
-parser.add_argument('region', default='us-west-2', nargs='?', help='Dynamo db region name (default=us-west-2')
+parser.add_argument('region', default='eu-central-1', nargs='?', help='Dynamo db region name (default=eu-central-1')
 args = parser.parse_args()
 print(args)
 
 # dynamodb and table initialization
-endpointUrl = "https://dynamodb.us-west-2.amazonaws.com"
+endpointUrl = "https://dynamodb.eu-central-1.amazonaws.com"
 dynamodb = boto3.resource('dynamodb', region_name=args.region, endpoint_url=endpointUrl)
 table = dynamodb.Table(args.table)
 
